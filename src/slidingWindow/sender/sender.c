@@ -8,7 +8,9 @@ void getAck()
     int ack;
     printf("\nNo ACK: -1"
            "\n   ACK: no.");
-    scanf("%d", &ack);
+    if (!scanf("%d", &ack))
+    {
+    }
     ackCnt = (ack == -1) ? ackCnt : ack;
 }
 
