@@ -18,7 +18,7 @@ char diffCmd[256];
 
 int main(int argc, char *argv[])
 {
-    assert(argc == 5);
+    assert(argc == 6);
     char senderCmd[256];
     snprintf(senderCmd, sizeof(senderCmd), "%s %s %s", argv[PARAM_SENDER], argv[PARAM_INPUT_FILE],
              argv[PARAM_INTERMEDIATE_FILE]);
