@@ -12,13 +12,26 @@ typedef unsigned long long int int64;
 #define $c (char *)
 #define $i (int)
 
-typedef struct icmp
+typedef enum pktType
+{
+    TYPE_DEFAULT,
+    TYPE_ECHO,
+    TYPE_ECHO_REPLY
+} pktType;
+struct icmp
 {
     int8 type;
     int8 code;
     int16 checksum;
     int8 data[];
-};
+} __attribute__((packed));
+
+struct icmpWrapper
+{
+    pktType type;
+    int16 len;
+    int8 *data;
+} __attribute__((packed));
 
 typedef struct icmp icmp;
 
