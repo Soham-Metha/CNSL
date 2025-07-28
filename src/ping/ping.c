@@ -31,7 +31,7 @@ icmp *icmpConstructor(int8 type, int8 code, int8 *data, int16 len)
     return pkt;
 }
 
-icmpWrapper *icmpWrapperConstructor(pktType type, int8 *data, int16 len)
+icmpWrapper *icmpWrapperConstructor(pktType type, const int8 *data, int16 len)
 {
     if (!data || !len)
         return (icmpWrapper *)0;
