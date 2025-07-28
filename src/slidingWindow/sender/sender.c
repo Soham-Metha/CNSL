@@ -24,6 +24,7 @@ int main(int argc, char **argv)
         while ((sentCnt - ackCnt) < WIN_SIZE)
         {
             printf("sending %d %c", sentCnt, in[i]);
+            sentCnt += 1;
         }
         getAck();
         sentCnt = ackCnt;
