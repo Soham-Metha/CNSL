@@ -12,7 +12,7 @@ void getAck()
     if (!scanf("%d", &ack))
     {
     }
-    ackCnt = (ack == -1) ? ackCnt : ack;
+    ackCnt = (ack == -1) ? ackCnt : ack + 1;
 }
 
 int main(int argc, char **argv)
