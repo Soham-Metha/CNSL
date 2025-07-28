@@ -30,3 +30,20 @@ icmp *icmpConstructor(int8 type, int8 code, int8 *data, int16 len)
 
     return pkt;
 }
+
+icmpWrapper *icmpWrapperConstructor(pktType type, int8 *data, int16 len)
+{
+    if (!data || !len)
+        return (icmpWrapper *)0;
+
+    icmpWrapper *pkt;
+    int16 pktSize = len + sizeof(struct icmpWrapper);
+    pkt = (icmpWrapper *)malloc($i pktSize);
+    assert(pkt);
+
+    pkt->type = TYPE_ECHO;
+    pkt->len = len;
+    pkt->data = data;
+
+    return pkt;
+}
