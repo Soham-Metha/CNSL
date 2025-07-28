@@ -24,7 +24,7 @@ int main(int argc, char **argv)
     {
         while ((sentCnt < fileSize) && (sentCnt - ackCnt + 1) < WIN_SIZE)
         {
-            printf("\nsending %3d/%ld '%c'", sentCnt, fileSize, (in[sentCnt] == '\n') ? '\\' : in[sentCnt]);
+            printf("\nsending %3d/%ld '%c'", sentCnt+1, fileSize, (in[sentCnt] == '\n') ? '\\' : in[sentCnt]);
             sentCnt += 1;
         }
         getAck();
