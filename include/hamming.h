@@ -17,7 +17,7 @@ typedef struct HammingSymbol
     unsigned short encodedValue; // Bit after encoding (with Hamming parity applied)
 } HammingSymbol;
 
-extern unsigned char arr[MESSAGE_SIZE + 1];
+// extern unsigned char arr[MESSAGE_SIZE + 1];
 
 void getMsbPosition(HammingSymbol *wrd);
 
