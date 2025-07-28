@@ -17,7 +17,6 @@ int main(int argc, char **argv)
     printf("\n================= SENDER =================\n");
     long fileSize = getFiles(&argc, &argv);
 
-    printf("\n┌─────┬──────────────┐\n");
     for (long i = 0; sentCnt < fileSize; i++)
     {
         while ((sentCnt - ackCnt) < WIN_SIZE)
@@ -28,7 +27,6 @@ int main(int argc, char **argv)
         sentCnt = ackCnt;
     }
 
-    printf("└─────┴──────────────┘"
-           "\n\n================= SENDER =================\n\n");
+    printf("\n\n================= SENDER =================\n\n");
     return 0;
 }
