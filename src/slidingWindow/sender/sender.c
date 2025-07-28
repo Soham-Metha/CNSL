@@ -7,7 +7,8 @@ void getAck()
 {
     int ack;
     printf("\nNo ACK: -1"
-           "\n   ACK: no.");
+           "\n   ACK: no."
+           "\nEnter : ");
     if (!scanf("%d", &ack))
     {
     }
