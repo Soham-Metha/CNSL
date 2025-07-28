@@ -25,13 +25,13 @@ int main(int argc, char *argv[])
     snprintf(receiverCmd, sizeof(receiverCmd), "%s %s %s ", argv[PARAM_RECEIVER], argv[PARAM_INTERMEDIATE_FILE],
              argv[PARAM_OUTPUT_FILE]);
     snprintf(diffCmd, sizeof(diffCmd), "diff %s %s ", argv[PARAM_INPUT_FILE], argv[PARAM_OUTPUT_FILE]);
-    printf("RUNNING SENDER   : %s\n\n", senderCmd);
+    // printf("RUNNING SENDER   : %s\n\n", senderCmd);
     assert(system(senderCmd) == 0);
-    printf("RUNNING RECEIVER : %s\n\n", receiverCmd);
+    // printf("RUNNING RECEIVER : %s\n\n", receiverCmd);
     assert(system(receiverCmd) == 0);
-    printf("RUNNING DIFF     : %s\n\n", diffCmd);
+    // printf("RUNNING DIFF     : %s\n\n", diffCmd);
     assert(system(diffCmd) == 0);
-    printf("FILE CONTENTS SAME\n\n");
+    // printf("FILE CONTENTS SAME\n\n");
 
     return 0;
 }
