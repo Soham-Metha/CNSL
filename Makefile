@@ -1,7 +1,9 @@
 BUILDS 	:= ./builds
 CC 		:= gcc
 FLAGS 	:= -Wall -Wextra -Werror -Wfatal-errors -O3 -std=c99
-SRC 	:= $(wildcard src/*.c)
+SRC 	:= $(wildcard src/common/*.c)
+S_SRC	:= $(wildcard src/sender/*.c)
+R_SRC	:= $(wildcard src/receiver/*.c)
 LIBS 	:= -I "./include/"
 
 SENDER 	:= $(BUILDS)/Sender
@@ -18,11 +20,11 @@ clean: | $(BUILDS)
 	@rm -f $(BUILDS)/*
 
 $(SENDER): | $(BUILDS)
-	@$(CC) $(FLAGS) $(filter-out src/receiver.c, $(SRC)) $(LIBS) -o $@
+	@$(CC) $(FLAGS) $(S_SRC) $(SRC) $(LIBS) -o $@
 	@$@ $(MSG_IN) $(MSG_EN)
 
 $(RECEIVER): | $(BUILDS)
-	@$(CC) $(FLAGS) $(filter-out src/sender.c, $(SRC)) $(LIBS) -o $@
+	@$(CC) $(FLAGS) $(R_SRC) $(SRC) $(LIBS) -o $@
 	@$@ $(MSG_EN) $(MSG_OUT)
 
 $(BUILDS):
