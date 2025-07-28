@@ -18,7 +18,7 @@ MSG_IN	:= ./extras/msg.txt
 MSG_EN := ./extras/encoded
 MSG_OUT := ./extras/text.txt
 
-all: clean $(H_SENDER) $(H_RECEVR)
+all: clean $(H_SENDER) $(H_RECEVR) $(S_SENDER)
 tester: clean $(H_SENDER) $(H_RECEVR) $(H_TESTER)
 sender:  clean $(H_SENDER)
 receiver:  clean $(H_RECEVR)
