@@ -4,10 +4,10 @@ FLAGS 	:= -Wall -Wextra -Werror -Wfatal-errors -O3 -std=c99
 SRC 	:= $(wildcard src/common/*.c)
 S_SRC	:= $(wildcard src/sender/*.c)
 R_SRC	:= $(wildcard src/receiver/*.c)
-LIBS 	:= -I "./include/"
+LIBS 	:= -I "./include/hamming/"
 
-SENDER 	:= $(BUILDS)/Sender
-RECEIVER:= $(BUILDS)/Receiver
+SENDER 	:= $(BUILDS)/HammingSender
+RECEIVER:= $(BUILDS)/HammingReceiver
 
 MSG_IN	:= ./extras/msg.txt
 MSG_EN := ./extras/encoded
