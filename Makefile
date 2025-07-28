@@ -30,7 +30,7 @@ $(RECEIVER): | $(BUILDS)
 
 $(TESTER): | $(BUILDS)
 	@$(CC) $(FLAGS) $(T_SRC) $(LIBS) -o $@
-	@$@ $(SENDER) $(RECEIVER) $(MSG_IN) $(MSG_EN) $(MSG_OUT)
+	@$@ $(SENDER) $(RECEIVER) $(MSG_IN) $(MSG_EN) $(MSG_OUT) >/dev/null
 
 $(BUILDS):
 	@mkdir -p builds
