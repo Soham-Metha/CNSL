@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 
     while (sentCnt < fileSize)
     {
-        while ((sentCnt < fileSize) && (sentCnt - ackCnt + 1) < WIN_SIZE)
+        while ((sentCnt < fileSize) && (sentCnt - ackCnt) < WIN_SIZE)
         {
             printf("\nsending %3d/%ld '%c'", sentCnt, fileSize - 1, (in[sentCnt] == '\n') ? '\\' : in[sentCnt]);
             sentCnt += 1;
