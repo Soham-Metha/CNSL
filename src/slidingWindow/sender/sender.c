@@ -19,11 +19,11 @@ int main(int argc, char **argv)
     printf("\n================= SENDER =================\n");
     long fileSize = getFiles(&argc, &argv);
 
-    for (long i = 0; sentCnt < fileSize; i++)
+    while (sentCnt < fileSize)
     {
         while ((sentCnt - ackCnt) < WIN_SIZE)
         {
-            printf("sending %d %c", sentCnt, in[i]);
+            printf("sending %d %c", sentCnt, in[sentCnt]);
             sentCnt += 1;
         }
         getAck();
