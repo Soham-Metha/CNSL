@@ -2,6 +2,16 @@
 #include <ping.h>
 #include <stdlib.h>
 
+void copy(int8 *dst, int8 *src, int16 len)
+{
+    int16 n;
+    int8 *sptr, *dptr;
+    for (sptr = src, dptr = dst, n = len; n > 0; n--)
+    {
+        *dptr++ = *sptr++;
+    }
+}
+
 icmp *icmpConstructor(int8 type, int8 code, int8 *data, int16 len)
 {
     if (!data || !len)
@@ -14,5 +24,9 @@ icmp *icmpConstructor(int8 type, int8 code, int8 *data, int16 len)
 
     pkt->code = code;
     pkt->type = type;
+    copy($1 & pkt->data, data, len);
+
     pkt->checksum = getChecksum(pkt);
+
+    return pkt;
 }
