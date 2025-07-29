@@ -1,7 +1,6 @@
 use std::env;
 use std::fs;
-use std::fs::File;
-use std::fs::OpenOptions;
+use std::io::Read;
 use std::io::Write;
 use std::process;
 
@@ -10,38 +9,34 @@ struct HammingSymbol {
     encoded_val: u16,
 }
 
-fn get_files(args: &[String]) -> (String, File) {
-    // println!("All args: {:?}", args);
-
-    if args.len() < 3 {
-        eprintln!("Usage: {} <in_file_name> <in_file_name>", args[0]);
-        process::exit(1);
-    }
-
-    let in_file = fs::read_to_string(&args[1]).expect("CANT OPEN IN FILE");
-    let out_file = OpenOptions::new()
-        .write(true)
-        .create(true)
-        .truncate(true)
-        .open(&args[1])
-        .expect("CANT OPEN OUT FILE");
-
-    println!("\nIN : {}\nOUT: {}\n", args[1], args[2]);
-
-    (in_file, out_file)
-}
-
 fn main() {
     let args: Vec<String> = env::args().collect();
-    let out: [HammingSymbol; 100];
+
+    if args.len() < 3 {
+        process::exit(1);
+    }
+    let mut out_f = fs::File::create(&args[2]).unwrap();
+
+    let mut in_f = fs::File::open(&args[1]).unwrap();
+    let mut characters = String::new();
+    in_f.read_to_string(&mut characters);
+
+    let mut out: [HammingSymbol; 100];
 
     println!("\n================= SENDER =================\n");
-    let (in_f, mut out_f) = get_files(&args);
+    println!("\nIN : {}\nOUT: {}\n", args[1], args[2]);
+    println!("\n================= SENDER =================\n");
 
-    for ch in in_f.chars() {}
+    for (i, ch) in characters.chars().enumerate() {
+        let ch = ch as u8;
+        out[i] = HammingSymbol {
+            char_val: ch,
+            encoded_val: 0,
+        }
+    }
 
     for symbol in &out {
-        out_f.write_all(&symbol.encoded_val.to_be_bytes());
+        out_f.write_all(&symbol.encoded_val.to_be_bytes()).unwrap();
     }
 
     println!("\n┌─────┬──────────────┐\n");
