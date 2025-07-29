@@ -37,9 +37,12 @@ char getDecodedCharFrom(unsigned short code)
         arr[i] = !!(code & (1 << (MESSAGE_SIZE - i)));
         printf("%d", arr[i]);
         if (arr[i])
+        {
+            printf("i %d ", i);
             for (unsigned char j = 0; j < PARITY_COUNT; j++)
                 if (i & (1 << j))
                     arr[(1 << j)] = !arr[(1 << j)];
+        }
     }
 
     unsigned char ParityVal = 0;
