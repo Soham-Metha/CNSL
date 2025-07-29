@@ -14,7 +14,6 @@ void getPrePriorityChangeValue(char ch)
         }
         else if (ch & (1 << (chLen)))
         {
-            arr[i] = 1;
             if (i & (1 << 0))
             {
                 arr[(1 << 0)] = !arr[(1 << 0)];
@@ -31,6 +30,7 @@ void getPrePriorityChangeValue(char ch)
             {
                 arr[(1 << 3)] = !arr[(1 << 3)];
             }
+            arr[i] = 1;
             chLen--;
         }
         else
