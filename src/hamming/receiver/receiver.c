@@ -17,7 +17,7 @@ int main(int argc, char **argv)
         printf("\n│  ");
         char ch = getDecodedCharFrom(encodedText[i]);
 
-        printf("  │  %c  │ ", (ch == '\n') ? '\\' : ch);
+        printf("  │  %c  │ ", char_val(ch));
         PRINT_BITS(MESSAGE_SIZE - 1, 0, encodedText[i])
         printf(" │");
 
