@@ -33,26 +33,21 @@ char getDecodedCharFrom(unsigned short code)
         arr[i] = 0;
 
     for (int j = 1; j <= MESSAGE_SIZE; j++)
-    {
         arr[j] = !!(code & (1 << (MESSAGE_SIZE - j)));
-    }
+
     checkParity();
 
-    char powOf2 = 1 << (PARITY_COUNT - 1);
-    char chLen = 0;
     int i = MESSAGE_SIZE;
-    while (chLen < DATA_BIT_CNT)
+    for (char chLen = 0, powOf2 = 1 << (PARITY_COUNT - 1); chLen < DATA_BIT_CNT; i--)
     {
         if (i == powOf2)
         {
             powOf2 = powOf2 >> 1;
+            continue;
         }
-        else
-        {
-            res = res | ((arr[i] == 1) ? (1 << (chLen)) : 0);
-            chLen++;
-        }
-        i--;
+
+        res = res | ((arr[i] == 1) ? (1 << (chLen)) : 0);
+        chLen++;
     }
     return res;
 }
