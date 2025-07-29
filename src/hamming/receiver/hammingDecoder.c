@@ -25,7 +25,6 @@ char getDecodedCharFrom(unsigned short code)
     }
     else
         printf(" NO ERROR HERE ");
-    // checkParity();
 
     int i = MESSAGE_SIZE;
     for (char chLen = 0, powOf2 = 1 << (PARITY_COUNT - 1); chLen < DATA_BIT_CNT; i--)
