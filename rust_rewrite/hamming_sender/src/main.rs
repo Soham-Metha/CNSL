@@ -27,9 +27,13 @@ fn main() {
         println!("│  {}  │ ", if ch == b'\n' { b'\\' } else { ch });
 
         let code = getCodeFor(&ch);
-        out_f.write_all(&code.encoded_val.to_be_bytes()).unwrap();
+        out_f.write_all(&code.to_be_bytes()).unwrap();
     }
 
     println!("└─────┴──────────────┘");
     println!("\n\n================= SENDER =================\n\n");
+}
+
+fn getCodeFor(ch: &u8) -> u16 {
+    10
 }
