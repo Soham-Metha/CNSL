@@ -2,6 +2,7 @@
 
 char getDecodedCharFrom(unsigned short code)
 {
+    unsigned char arr[MESSAGE_SIZE + 1];
     unsigned char ParityVal = 0;
     for (int i = 1; i <= MESSAGE_SIZE; i++)
     {
