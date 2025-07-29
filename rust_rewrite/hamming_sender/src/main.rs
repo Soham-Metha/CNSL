@@ -2,7 +2,7 @@ use std::env;
 use std::fs;
 use std::process;
 
-fn get_files(args: Vec<String>) -> (String, String) {
+fn get_files(args: &[String]) -> (String, String) {
     // println!("All args: {:?}", args);
 
     if args.len() < 3 {
@@ -19,9 +19,11 @@ fn get_files(args: Vec<String>) -> (String, String) {
 }
 
 fn main() {
-    let args = env::args().collect();
+    let args: Vec<String> = env::args().collect();
     println!("\n================= SENDER =================\n");
-    let (in_f, out_f) = get_files(args);
+    let (in_f, out_f) = get_files(&args);
+
+    for ch in in_f.chars() {}
 
     println!("\n┌─────┬──────────────┐\n");
     println!("└─────┴──────────────┘");
