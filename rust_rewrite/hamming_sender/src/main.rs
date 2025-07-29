@@ -25,8 +25,11 @@ fn main() {
     println!("\nIN : {}\nOUT: {}\n", args[1], args[2]);
     println!("\n================= SENDER =================\n");
 
-    for (i, ch) in characters.chars().enumerate() {
+    for ch in characters.chars() {
         let ch = ch as u8;
+
+        println!("");
+
         let code = HammingSymbol {
             char_val: ch,
             encoded_val: 0,
