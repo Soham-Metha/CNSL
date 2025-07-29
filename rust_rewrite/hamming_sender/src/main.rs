@@ -40,10 +40,14 @@ fn main() {
 
 fn getCodeFor(ch: &u8) -> u16 {
     let mut bitArr = [0; MESSAGE_SIZE];
+    let mut dataLen = DATA_SIZE;
     let mut pow_of_2 = 1;
     for i in (1..=MESSAGE_SIZE).rev() {
         if i == pow_of_2 {
             pow_of_2 = pow_of_2 << 1;
+        }
+        else {
+            bitArr[i] = 
         }
     }
     10
