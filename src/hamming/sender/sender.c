@@ -20,7 +20,7 @@ int main(int argc, char **argv)
         printf(" │\n");
 
         // code |= 2;
-        fwrite(&(code), sizeof(unsigned short), 1, outF);
+        fwrite(&(code), sizeof(int16), 1, outF);
     }
 
     printf("└─────┴──────────────┘"
