@@ -9,7 +9,7 @@
 int main(int argc, char **argv)
 {
     printf("\n================= SENDER =================\n");
-    unsigned char fileSize = getFiles(&argc, &argv);
+    unsigned char fileSize = (unsigned char)getFiles(&argc, &argv);
     HammingSymbol out[fileSize];
 
     printf("\n┌─────┬──────────────┐\n");
