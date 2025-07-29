@@ -35,13 +35,7 @@ char getDecodedCharFrom(unsigned short code)
     for (int i = 1, powOf2 = 1; i <= MESSAGE_SIZE; i++)
     {
         arr[i] = !!(code & (1 << (MESSAGE_SIZE - i)));
-        if (i == powOf2)
-        {
-            powOf2 = powOf2 << 1;
-            continue;
-        }
         for (unsigned char j = 0; j < PARITY_COUNT; j++)
-            // arr[1 << j] ^= !!(i & (1 << j));
             if (i & (1 << j))
                 arr[(1 << j)] = !arr[(1 << j)];
     }
