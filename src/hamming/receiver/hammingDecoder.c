@@ -19,9 +19,9 @@ char getDecodedCharFrom(unsigned short code)
     else
         printf(" NO ERROR HERE ");
 
-    int i = MESSAGE_SIZE;
+    int i = 1;
     char res = 0;
-    for (char chLen = DATA_BIT_CNT - 1, powOf2 = 1; chLen >= 0; i--)
+    for (char chLen = DATA_BIT_CNT - 1, powOf2 = 1; chLen >= 0; i++)
     {
         if (i == powOf2)
         {
