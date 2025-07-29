@@ -6,12 +6,9 @@ unsigned char arr[MESSAGE_SIZE + 1];
 char getDecodedCharFrom(unsigned short code)
 {
     unsigned char ParityVal = 0;
-    char res = 0;
-
     for (int i = 1; i <= MESSAGE_SIZE; i++)
     {
         arr[i] = !!(code & (1 << (MESSAGE_SIZE - i)));
-        // printf("%d", arr[i]);
         if (arr[i])
             ParityVal ^= i;
     }
@@ -25,6 +22,7 @@ char getDecodedCharFrom(unsigned short code)
         printf(" NO ERROR HERE ");
 
     int i = MESSAGE_SIZE;
+    char res = 0;
     for (char chLen = 0, powOf2 = 1 << (PARITY_COUNT - 1); chLen < DATA_BIT_CNT; i--)
     {
         if (i == powOf2)
