@@ -13,7 +13,6 @@
         }                                                                                                              \
     }
 
-unsigned char arr[MESSAGE_SIZE + 1];
 // extern unsigned char arr[MESSAGE_SIZE + 1];
 
 // void getMsbPosition(HammingSymbol *wrd);
