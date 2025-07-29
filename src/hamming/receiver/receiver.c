@@ -4,22 +4,23 @@
 
 int main(int argc, char **argv)
 {
+    assert(argc >= 3);
     assert(getFiles(&argc, &argv));
     int16 *encodedText = (int16 *)(&in[1]);
 
     printf("\n================ RECEIVER ================\n"
            "\nIN  : %s\nOUT : %s\n"
-           "\n┌───────────────────┬─────┬──────────────┐",
+           "\n┌───────────────────┬─────┬──────────────┐\n",
            argv[1], argv[2]);
 
     for (int8 i = 0; i < in[0]; i++)
     {
-        printf("\n│  ");
+        printf("│  ");
         char ch = getDecodedCharFrom(encodedText[i]);
 
         printf("  │  %c  │ ", char_val(ch));
         PRINT_BITS(MESSAGE_SIZE - 1, 0, encodedText[i])
-        printf(" │");
+        printf(" │\n");
 
         fprintf(outF, "%c", ch);
     }
