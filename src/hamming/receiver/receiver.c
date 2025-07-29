@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 
     assert(getFiles(&argc, &argv));
 
-    unsigned short *encodedText = (unsigned short *)(&in[1]);
+    int16 *encodedText = (int16 *)(&in[1]);
 
     for (unsigned char i = 0; i < in[0]; i++)
     {
