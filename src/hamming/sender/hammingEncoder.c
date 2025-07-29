@@ -6,9 +6,7 @@ unsigned short getCodeFor(char ch)
 {
     unsigned short result = 0;
     for (unsigned char i = 0; i <= MESSAGE_SIZE; i++)
-    {
         arr[i] = 0;
-    }
 
     unsigned char i = 1;
     for (char chLen = DATA_BIT_CNT - 1, powOf2 = 1; chLen >= 0; i++)
