@@ -24,8 +24,8 @@ sender:  clean $(H_SENDER)
 receiver:  clean $(H_RECEVR)
 clean: | $(BUILDS)
 	@rm -f $(BUILDS)/*
-	@rm -p $(MSG_EN)
-	@rm -p $(MSG_OUT)
+	@rm -f $(MSG_EN)
+	@rm -f $(MSG_OUT)
 
 $(H_SENDER): | $(BUILDS)
 	@$(CC) $(FLAGS) $(H_S_SRC) $(SRC) $(LIBS) -o $@
