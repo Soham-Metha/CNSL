@@ -31,6 +31,7 @@ void getPrePriorityChangeValue(char ch)
             {
                 arr[(1 << 3)] = !arr[(1 << 3)];
             }
+            chLen--;
         }
         else
         {
