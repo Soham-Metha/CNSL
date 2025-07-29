@@ -12,7 +12,7 @@ int main(int argc, char **argv)
            "\n┌───────────────────┬─────┬──────────────┐",
            argv[1], argv[2]);
 
-    for (unsigned char i = 0; i < in[0]; i++)
+    for (int8 i = 0; i < in[0]; i++)
     {
         printf("\n│  ");
         char ch = getDecodedCharFrom(encodedText[i]);
