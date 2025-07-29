@@ -2,7 +2,7 @@ use std::env;
 use std::fs;
 use std::process;
 
-fn get_files(args: Vec<String>) -> (Vec<u8>, Vec<u8>) {
+fn get_files(args: Vec<String>) -> (String, String) {
     // println!("All args: {:?}", args);
 
     if args.len() < 3 {
@@ -10,8 +10,8 @@ fn get_files(args: Vec<String>) -> (Vec<u8>, Vec<u8>) {
         process::exit(1);
     }
 
-    let in_file = fs::read(&args[1]).expect("CANT OPEN IN FILE");
-    let out_file = fs::read(&args[2]).expect("CANT OPEN OUT FILE");
+    let in_file = fs::read_to_string(&args[1]).expect("CANT OPEN IN FILE");
+    let out_file = fs::read_to_string(&args[2]).expect("CANT OPEN OUT FILE");
 
     println!("\nIN : {}\nOUT: {}\n", args[1], args[2]);
 
@@ -21,7 +21,7 @@ fn get_files(args: Vec<String>) -> (Vec<u8>, Vec<u8>) {
 fn main() {
     let args = env::args().collect();
     println!("\n================= SENDER =================\n");
-    get_files(args);
+    let (in_f, out_f) = get_files(args);
 
     println!("\n┌─────┬──────────────┐\n");
     println!("└─────┴──────────────┘");
