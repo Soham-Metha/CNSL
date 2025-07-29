@@ -38,9 +38,7 @@ char getDecodedCharFrom(unsigned short code)
         arr[i] = !!(code & (1 << (MESSAGE_SIZE - i)));
         // printf("%d", arr[i]);
         if (arr[i])
-        {
             ParityVal ^= i;
-        }
     }
     printf("%d", ParityVal);
 
