@@ -1,7 +1,7 @@
 #include <fileOps.h>
 #include <stdlib.h>
 
-typedef unsigned char i8;
+typedef unsigned char int8;
 typedef unsigned short int i16;
 typedef unsigned int i32;
 typedef unsigned long long int i64;
