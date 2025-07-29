@@ -5,7 +5,8 @@
 int main(int argc, char **argv)
 {
     printf("\n================ RECEIVER ================\n"
-           "\nIN  : %s\nOUT : %s\n",
+           "\nIN  : %s\nOUT : %s\n"
+           "\n┌───────────────────┬─────┬──────────────┐",
            argv[1], argv[2]);
 
     if (!getFiles(&argc, &argv))
@@ -16,7 +17,6 @@ int main(int argc, char **argv)
 
     unsigned short *encodedText = (unsigned short *)(&in[1]);
 
-    printf("\n┌───────────────────┬─────┬──────────────┐");
     for (unsigned char i = 0; i < in[0]; i++)
     {
         printf("\n│  ");
