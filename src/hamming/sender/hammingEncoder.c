@@ -12,35 +12,28 @@ void getPrePriorityChangeValue(char ch)
         {
             powOf2 = powOf2 << 1;
         }
+        else if (ch & (1 << (chLen - 1)))
+        {
+            arr[i] = 1;
+            if (i & (1 << 0))
+            {
+                arr[(1 << 0)] = !arr[(1 << 0)];
+            }
+            if (i & (1 << 1))
+            {
+                arr[(1 << 1)] = !arr[(1 << 1)];
+            }
+            if (i & (1 << 2))
+            {
+                arr[(1 << 2)] = !arr[(1 << 2)];
+            }
+            if (i & (1 << 3))
+            {
+                arr[(1 << 3)] = !arr[(1 << 3)];
+            }
+        }
         else
         {
-            // arr[i] = (ch & (1 << (chLen - 1))) ? 1 : 0;
-            // printf("%d", arr[i]);
-            if (ch & (1 << (chLen - 1)))
-            {
-                arr[i] = 1;
-                printf("\nval %c %d ", ch, ch);
-                if (i & (1 << 0))
-                {
-                    arr[(1 << 0)] = !arr[(1 << 0)];
-                    printf("pos %d ", 1 << 0);
-                }
-                if (i & (1 << 1))
-                {
-                    arr[(1 << 1)] = !arr[(1 << 1)];
-                    printf("pos %d ", 1 << 1);
-                }
-                if (i & (1 << 2))
-                {
-                    arr[(1 << 2)] = !arr[(1 << 2)];
-                    printf("pos %d ", 1 << 2);
-                }
-                if (i & (1 << 3))
-                {
-                    arr[(1 << 3)] = !arr[(1 << 3)];
-                    printf("pos %d ", 1 << 3);
-                }
-            }
             chLen--;
         }
         i++;
