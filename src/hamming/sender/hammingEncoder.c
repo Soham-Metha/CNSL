@@ -23,22 +23,22 @@ void getPrePriorityChangeValue(char ch)
                 printf("\nval %c %d ", ch, ch);
                 if (i & (1 << 0))
                 {
-                    arr[1 << 0] = !arr[1 << 0];
+                    arr[(1 << 0) + 1] = !arr[(1 << 0) + 1];
                     printf("pos %d ", 1 << 0);
                 }
                 if (i & (1 << 1))
                 {
-                    arr[1 << 1] = !arr[1 << 1];
+                    arr[(1 << 1) + 1] = !arr[(1 << 1) + 1];
                     printf("pos %d ", 1 << 1);
                 }
                 if (i & (1 << 2))
                 {
-                    arr[1 << 2] = !arr[1 << 2];
+                    arr[(1 << 2) + 1] = !arr[(1 << 2) + 1];
                     printf("pos %d ", 1 << 2);
                 }
                 if (i & (1 << 3))
                 {
-                    arr[1 << 3] = !arr[1 << 3];
+                    arr[(1 << 3) + 1] = !arr[(1 << 3) + 1];
                     printf("pos %d ", 1 << 3);
                 }
             }
