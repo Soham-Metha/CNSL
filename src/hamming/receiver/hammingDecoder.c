@@ -28,28 +28,21 @@ void checkParity()
 
 char getDecodedCharFrom(unsigned short code)
 {
+    unsigned char ParityVal = 0;
     char res = 0;
     for (unsigned char i = 0; i <= MESSAGE_SIZE; i++)
         arr[i] = 0;
 
-    unsigned char ParityVal = 0;
     for (int i = 1; i <= MESSAGE_SIZE; i++)
     {
         arr[i] = !!(code & (1 << (MESSAGE_SIZE - i)));
         // printf("%d", arr[i]);
         if (arr[i])
         {
-            printf("i %d ", i);
-            // for (unsigned char j = 0; j < PARITY_COUNT; j++)
             ParityVal ^= i;
-            // if (i & (1 << j))
-            //     arr[(1 << j)] = !arr[(1 << j)];
         }
     }
     printf("%d", ParityVal);
-    // printf(" %d %d %d %d", arr[1 << 0], arr[1 << 1], arr[1 << 2], arr[1 << 3]);
-    // for (unsigned char j = 0; j < MESSAGE_SIZE; j = j << 1)
-    //     ParityVal = j * arr[j];
 
     if (ParityVal)
     {
