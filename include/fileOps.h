@@ -1,5 +1,4 @@
 #pragma once
-#include <hamming.h>
 #include <stdio.h>
 
 typedef unsigned char int8;
@@ -18,5 +17,3 @@ extern char *in;
 extern FILE *outF;
 
 long getFiles(int *argc, char ***argv);
-
-void dumpHexToFile(HammingSymbol wrd[], unsigned char len, FILE *f);
