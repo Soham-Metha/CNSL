@@ -43,12 +43,3 @@ long getFiles(int *argc, char ***argv)
 
     return readInFile();
 }
-
-void dumpHexToFile(HammingSymbol wrd[], unsigned char len, FILE *f)
-{
-    fwrite(&len, sizeof(unsigned char), 1, f);
-    for (unsigned char i = 0; i < len; i++)
-    {
-        fwrite(&(wrd[i].encodedValue), sizeof(unsigned short), 1, f);
-    }
-}
