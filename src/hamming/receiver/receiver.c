@@ -4,14 +4,14 @@
 
 int main(int argc, char **argv)
 {
+    assert(getFiles(&argc, &argv));
+
+    int16 *encodedText = (int16 *)(&in[1]);
+
     printf("\n================ RECEIVER ================\n"
            "\nIN  : %s\nOUT : %s\n"
            "\n┌───────────────────┬─────┬──────────────┐",
            argv[1], argv[2]);
-
-    assert(getFiles(&argc, &argv));
-
-    int16 *encodedText = (int16 *)(&in[1]);
 
     for (unsigned char i = 0; i < in[0]; i++)
     {
