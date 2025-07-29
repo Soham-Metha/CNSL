@@ -42,8 +42,8 @@ char getDecodedCharFrom(unsigned short code)
     }
 
     unsigned char ParityVal = 0;
-    for (char j = 0; j < PARITY_COUNT; j++)
-        ParityVal = (ParityVal << 1) + arr[1 << j];
+    for (char j = 0; j < MESSAGE_SIZE; j = j << 1)
+        ParityVal = j * arr[j];
 
     if (ParityVal)
     {
