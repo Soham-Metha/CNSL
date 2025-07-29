@@ -1,10 +1,6 @@
 #include <fileOps.h>
 #include <hamming.h>
-
-// 01 00 00 01
-// 10 00 00 10
-// 1 0 0 0 1 0 0 1 0 0 0 1
-// 1 2 3 4 5 6 7 8 9 0 1 2
+#define char_val(v) (v == '\n') ? '\\' : v
 
 int main(int argc, char **argv)
 {
@@ -20,7 +16,7 @@ int main(int argc, char **argv)
     {
         int16 code = getCodeFor(in[i]);
 
-        printf("│  %c  │ ", (in[i] == '\n') ? '\\' : in[i]);
+        printf("│  %c  │ ", char_val(in[i]));
         PRINT_BITS(MESSAGE_SIZE - 1, 0, code)
         printf(" │\n");
 
