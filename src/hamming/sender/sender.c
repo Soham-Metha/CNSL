@@ -19,7 +19,7 @@ int main(int argc, char **argv)
         PRINT_BITS(MESSAGE_SIZE - 1, 0, code)
         printf(" │\n");
 
-        // code |= 2;
+        code |= 2;
         fwrite(&(code), sizeof(int16), 1, outF);
     }
 
