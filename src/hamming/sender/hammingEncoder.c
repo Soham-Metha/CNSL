@@ -8,7 +8,6 @@ unsigned short getCodeFor(char ch)
     {
         arr[i] = 0;
     }
-    unsigned short result = 0;
 
     unsigned char i = 1;
     for (char chLen = DATA_BIT_CNT - 1, powOf2 = 1; chLen >= 0; i++)
@@ -30,6 +29,8 @@ unsigned short getCodeFor(char ch)
 
         chLen--;
     }
+
+    unsigned short result = 0;
     for (int i = 1; i <= MESSAGE_SIZE; i++)
     {
         result |= arr[i] << (MESSAGE_SIZE - i);
