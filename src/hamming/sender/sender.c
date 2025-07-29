@@ -9,12 +9,12 @@
 int main(int argc, char **argv)
 {
     printf("\n================= SENDER =================\n");
-    unsigned char fileSize = (unsigned char)getFiles(&argc, &argv);
+    i8 fileSize = (i8)getFiles(&argc, &argv);
     HammingSymbol out[fileSize];
 
     printf("\n┌─────┬──────────────┐\n");
-    fwrite(&fileSize, sizeof(unsigned char), 1, outF);
-    for (unsigned char i = 0; i < fileSize; i++)
+    fwrite(&fileSize, sizeof(i8), 1, outF);
+    for (i8 i = 0; i < fileSize; i++)
     {
         out[i] = getCodeFor(in[i]);
 
