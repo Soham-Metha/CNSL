@@ -48,5 +48,21 @@ fn get_code_for(ch: &u8) -> u16 {
             bit_arr[i] = bit;
             data_len += 1;
         });
-    0
+    (1..=MESSAGE_SIZE)
+        .filter(|&i| i.is_power_of_two())
+        .for_each(|p| {
+            let parity = (p..=MESSAGE_SIZE)
+                .step_by(2 * p)
+                .flat_map(|j| j..(j + p).min(MESSAGE_SIZE + 1))
+                .filter(|&k| bit_arr[k] != 0)
+                .count()
+                % 2;
+
+            bit_arr[p] = parity as u8;
+        });
+
+    // Convert bit array to u16
+    (1..=MESSAGE_SIZE).fold(0u16, |acc, i| {
+        acc | ((bit_arr[i] as u16) << (MESSAGE_SIZE - i))
+    })
 }
