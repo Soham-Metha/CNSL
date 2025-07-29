@@ -30,14 +30,11 @@ char getDecodedCharFrom(unsigned short code)
 {
     char res = 0;
     for (unsigned char i = 0; i <= MESSAGE_SIZE; i++)
-    {
         arr[i] = 0;
-    }
 
-    // getLen();
     for (int j = 1; j <= MESSAGE_SIZE; j++)
     {
-        arr[j] = (code & (1 << (MESSAGE_SIZE - j))) ? 1 : 0;
+        arr[j] = !!(code & (1 << (MESSAGE_SIZE - j)));
     }
     checkParity();
 
