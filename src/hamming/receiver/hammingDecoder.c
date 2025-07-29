@@ -43,6 +43,14 @@ char getDecodedCharFrom(unsigned short code)
     unsigned char ParityVal = 0;
     for (char j = 0; j < PARITY_COUNT; j++)
         ParityVal += arr[1 << j] * 1 << j;
+
+    if (ParityVal)
+    {
+        printf(" ERROR AT : %d ", ParityVal);
+        arr[ParityVal] = !arr[ParityVal];
+    }
+    else
+        printf(" NO ERROR HERE ");
     // checkParity();
 
     int i = MESSAGE_SIZE;
