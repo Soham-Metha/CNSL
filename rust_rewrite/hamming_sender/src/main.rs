@@ -23,14 +23,13 @@ fn main() {
     println!("\n================= SENDER =================\n");
     println!("\nIN : {}\nOUT: {}\n", args[1], args[2]);
     println!("\n================= SENDER =================\n");
-    println!("\n┌─────┬──────────────┐\n");
+    println!("\n┌─────┬──────────────┐");
 
     for ch in characters.chars() {
+        println!("│  {}  │ ", if ch == '\n' { '\\' } else { ch });
         let ch = ch as u8;
 
-        println!("│  {}  │ ", if ch == b'\n' { b'\\' } else { ch });
-
-        let code = getCodeFor(&ch);
+        let code = get_code_for(&ch);
         out_f.write_all(&code.to_be_bytes()).unwrap();
     }
 
@@ -38,8 +37,8 @@ fn main() {
     println!("\n\n================= SENDER =================\n\n");
 }
 
-fn getCodeFor(ch: &u8) -> u16 {
-    let mut bit_arr = [0; MESSAGE_SIZE];
+fn get_code_for(ch: &u8) -> u16 {
+    let mut bit_arr = [0; MESSAGE_SIZE + 1];
     let mut data_len = DATA_SIZE;
     let mut pow_of_2 = 1;
     for i in (1..=MESSAGE_SIZE).rev() {
@@ -52,7 +51,10 @@ fn getCodeFor(ch: &u8) -> u16 {
                 0
             };
             data_len -= 1;
+            if data_len == 0 {
+                break;
+            }
         }
     }
-    10
+    0
 }
