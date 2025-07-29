@@ -1,6 +1,5 @@
 #include <fileOps.h>
 #include <hamming.h>
-#define char_val(v) (v == '\n') ? '\\' : v
 
 int main(int argc, char **argv)
 {
