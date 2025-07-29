@@ -8,8 +8,6 @@ unsigned short getCodeFor(char ch)
     {
         arr[i] = 0;
     }
-
-    getPrePriorityChangeValue(ch);
     unsigned short result = 0;
 
     unsigned char i = 1;
