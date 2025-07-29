@@ -9,11 +9,7 @@ int main(int argc, char **argv)
            "\n┌───────────────────┬─────┬──────────────┐",
            argv[1], argv[2]);
 
-    if (!getFiles(&argc, &argv))
-    {
-        printf("INPUT FILE IS EMPTY");
-        return 1;
-    }
+    assert(getFiles(&argc, &argv));
 
     unsigned short *encodedText = (unsigned short *)(&in[1]);
 
