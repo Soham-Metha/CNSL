@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <fileOps.h>
 #include <hamming.h>
 
