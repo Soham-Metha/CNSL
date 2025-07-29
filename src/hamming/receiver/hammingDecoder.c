@@ -35,7 +35,7 @@ char getDecodedCharFrom(unsigned short code)
     for (int i = 1; i <= MESSAGE_SIZE; i++)
     {
         arr[i] = !!(code & (1 << (MESSAGE_SIZE - i)));
-        printf("%d", arr[i]);
+        // printf("%d", arr[i]);
         if (arr[i])
         {
             printf("i %d ", i);
