@@ -1,6 +1,0 @@
-[workspace]
-members = [
-    "common",
-    "hamming_sender",
-    "hamming_receiver"
-]
