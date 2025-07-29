@@ -24,7 +24,7 @@ void getPrePriorityChangeValue(char ch)
 {
     int i = 1;
 
-    for (char chLen = DATA_BIT_CNT - 1, powOf2 = 1; chLen >= 0; chLen > 0)
+    for (char chLen = DATA_BIT_CNT - 1, powOf2 = 1; chLen >= 0;)
     {
         if (i == powOf2)
             powOf2 = powOf2 << 1;
