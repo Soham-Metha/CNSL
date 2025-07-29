@@ -45,9 +45,13 @@ fn getCodeFor(ch: &u8) -> u16 {
     for i in (1..=MESSAGE_SIZE).rev() {
         if i == pow_of_2 {
             pow_of_2 = pow_of_2 << 1;
-        }
-        else {
-            bitArr[i] = 
+        } else {
+            bitArr[i] = if (ch & (1 << (dataLen - 1))) != 0 {
+                1
+            } else {
+                0
+            };
+            dataLen -= 1;
         }
     }
     10
