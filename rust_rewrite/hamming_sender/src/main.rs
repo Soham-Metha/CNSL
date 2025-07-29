@@ -25,7 +25,8 @@ fn get_files(args: &[String]) -> (String, String) {
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-    let out[] = [HammingSymbol; 100];
+    let out: [HammingSymbol; 100];
+
     println!("\n================= SENDER =================\n");
     let (in_f, out_f) = get_files(&args);
 
