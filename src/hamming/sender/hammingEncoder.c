@@ -25,17 +25,17 @@ void getPrePriorityChangeValue(char ch)
                     arr[1 << 0] = !arr[1 << 0];
                     printf("pos %d ", 1 << 0);
                 }
-                else if (i & (1 << 1))
+                if (i & (1 << 1))
                 {
                     arr[1 << 1] = !arr[1 << 1];
                     printf("pos %d ", 1 << 1);
                 }
-                else if (i & (1 << 2))
+                if (i & (1 << 2))
                 {
                     arr[1 << 2] = !arr[1 << 2];
                     printf("pos %d ", 1 << 2);
                 }
-                else if (i & (1 << 3))
+                if (i & (1 << 3))
                 {
                     arr[1 << 3] = !arr[1 << 3];
                     printf("pos %d ", 1 << 3);
