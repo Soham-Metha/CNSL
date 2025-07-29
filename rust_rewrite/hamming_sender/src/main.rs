@@ -28,7 +28,7 @@ fn main() {
     for ch in characters.chars() {
         let ch = ch as u8;
 
-        println!("");
+        println!("│  {}  │ ", if ch == b'\n' { b'\\' } else { ch });
 
         let code = HammingSymbol {
             char_val: ch,
