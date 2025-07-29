@@ -42,7 +42,7 @@ void getPrePriorityChangeValue(char ch)
 
 unsigned short getCodeFor(char ch)
 {
-    for (unsigned char i = 0; i < MESSAGE_SIZE; i++)
+    for (unsigned char i = 0; i <= MESSAGE_SIZE; i++)
     {
         arr[i] = 0;
     }
