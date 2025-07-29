@@ -20,7 +20,7 @@ void getPrePriorityChangeValue(char ch)
             if (ch & (1 << (chLen - 1)))
             {
                 arr[i] = 1;
-                printf("\nval %d ", ch);
+                printf("\nval %c %d ", ch, ch);
                 if (i & (1 << 0))
                 {
                     arr[1 << 0] = !arr[1 << 0];
