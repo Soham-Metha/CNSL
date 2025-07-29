@@ -3,14 +3,6 @@
 #include <stdlib.h>
 unsigned char arr[MESSAGE_SIZE + 1];
 
-// void getLen()
-// {
-//     while (wrd->encodedValue >> len)
-//     {
-//         len++;
-//     }
-// }
-
 void checkParity()
 {
     int parityPosition = 0;
