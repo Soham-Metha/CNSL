@@ -12,7 +12,7 @@ void getPrePriorityChangeValue(char ch)
         {
             powOf2 = powOf2 << 1;
         }
-        else if (ch & (1 << (chLen - 1)))
+        else if (ch & (1 << (chLen)))
         {
             arr[i] = 1;
             if (i & (1 << 0))
