@@ -4,9 +4,9 @@ use std::io::Read;
 use std::io::Write;
 use std::process;
 
-const DATA_SIZE: u8 = 8;
-const PARITY_SIZE: u8 = 4;
-const MESSAGE_SIZE: u8 = DATA_SIZE + PARITY_SIZE;
+const DATA_SIZE: usize = 8;
+const PARITY_SIZE: usize = 4;
+const MESSAGE_SIZE: usize = DATA_SIZE + PARITY_SIZE;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -39,5 +39,6 @@ fn main() {
 }
 
 fn getCodeFor(ch: &u8) -> u16 {
+    let bitArr = [0; MESSAGE_SIZE];
     10
 }
