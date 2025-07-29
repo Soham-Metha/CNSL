@@ -1,6 +1,6 @@
 #include <hamming.h>
 #include <stdio.h>
-#include <stdlib.h>
+
 unsigned char arr[MESSAGE_SIZE + 1];
 
 char getDecodedCharFrom(unsigned short code)
