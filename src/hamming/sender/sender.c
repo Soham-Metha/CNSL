@@ -1,8 +1,10 @@
+#include <assert.h>
 #include <fileOps.h>
 #include <hamming.h>
 
 int main(int argc, char **argv)
 {
+    assert(argc >= 3);
     int8 fileSize = (int8)getFiles(&argc, &argv);
     fwrite(&fileSize, sizeof(int8), 1, outF);
 
