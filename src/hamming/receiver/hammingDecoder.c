@@ -21,11 +21,11 @@ char getDecodedCharFrom(unsigned short code)
 
     int i = MESSAGE_SIZE;
     char res = 0;
-    for (char chLen = DATA_BIT_CNT - 1, powOf2 = 1 << (PARITY_COUNT - 1); chLen >= 0; i--)
+    for (char chLen = DATA_BIT_CNT - 1, powOf2 = 1; chLen >= 0; i--)
     {
         if (i == powOf2)
         {
-            powOf2 = powOf2 >> 1;
+            powOf2 = powOf2 << 1;
             continue;
         }
 
