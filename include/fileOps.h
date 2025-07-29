@@ -3,9 +3,9 @@
 #include <stdio.h>
 
 typedef unsigned char int8;
-typedef unsigned short int i16;
-typedef unsigned int i32;
-typedef unsigned long long int i64;
+typedef unsigned short int int16;
+typedef unsigned int int32;
+typedef unsigned long long int int64;
 
 #define $1 (i8 *)
 #define $2 (i16)
