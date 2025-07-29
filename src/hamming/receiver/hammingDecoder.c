@@ -31,6 +31,7 @@ char getDecodedCharFrom(unsigned short code)
         }
 
         { // Load data Bit into 'result'
+            // opposite hammingEncoder:18 :=> if (ch & (1 << (chLen))) arr[i] = 1;
             res = res | (arr[i] ? (1 << (chLen)) : 0);
         }
         chLen--;
