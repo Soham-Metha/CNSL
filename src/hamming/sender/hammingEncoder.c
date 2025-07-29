@@ -20,20 +20,17 @@ unsigned char arr[MESSAGE_SIZE + 1];
 //     }
 // }
 
-void getPrePriorityChangeValue(HammingSymbol *wrd)
+void getPrePriorityChangeValue(char ch)
 {
-    char powOf2 = 1;
-    char chLen = DATA_BIT_CNT;
     int i = 1;
-    while (chLen > 0)
+
+    for (char chLen = DATA_BIT_CNT - 1, powOf2 = 1; chLen >= 0; chLen > 0)
     {
         if (i == powOf2)
-        {
             powOf2 = powOf2 << 1;
-        }
         else
         {
-            arr[i] = (wrd->charValue & (1 << (chLen - 1))) ? 1 : 0;
+            arr[i] = (ch & (1 << (chLen))) ? 1 : 0;
             // printf("%d", arr[i]);
             chLen--;
         }
@@ -41,17 +38,17 @@ void getPrePriorityChangeValue(HammingSymbol *wrd)
     }
 }
 
-HammingSymbol getCodeFor(char ch)
+unsigned short getCodeFor(char ch)
 {
     for (unsigned char i = 0; i < MESSAGE_SIZE; i++)
     {
         arr[i] = 0;
     }
 
-    HammingSymbol wrd = (HammingSymbol){.charValue = ch, .encodedValue = 0};
     // getMsbPosition(&wrd);
     // getPriorityBitCnt(&wrd);
-    getPrePriorityChangeValue(&wrd);
+    getPrePriorityChangeValue(ch);
+    unsigned short result = 0;
 
     for (unsigned char powOf2 = 1; powOf2 <= MESSAGE_SIZE; powOf2 = powOf2 << 1)
     {
@@ -69,7 +66,7 @@ HammingSymbol getCodeFor(char ch)
     }
     for (int i = 1; i <= MESSAGE_SIZE; i++)
     {
-        wrd.encodedValue |= arr[i] << (MESSAGE_SIZE - i);
+        result |= arr[i] << (MESSAGE_SIZE - i);
     }
-    return wrd;
+    return result;
 }
