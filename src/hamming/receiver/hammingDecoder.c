@@ -29,7 +29,7 @@ void checkParity()
 char getDecodedCharFrom(unsigned short code)
 {
     char res = 0;
-    for (unsigned char i = 0; i < MESSAGE_SIZE; i++)
+    for (unsigned char i = 0; i <= MESSAGE_SIZE; i++)
     {
         arr[i] = 0;
     }
