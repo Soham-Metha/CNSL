@@ -40,7 +40,7 @@ char getDecodedCharFrom(unsigned short code)
         if (arr[i])
             ParityVal ^= i;
     }
-    printf("%d", ParityVal);
+    // printf("%d", ParityVal);
 
     if (ParityVal)
     {
