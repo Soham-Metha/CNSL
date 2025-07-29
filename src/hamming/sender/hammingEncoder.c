@@ -9,32 +9,18 @@ void getPrePriorityChangeValue(char ch)
         if (i == powOf2)
         {
             powOf2 = powOf2 << 1;
+            continue;
         }
-        else if (ch & (1 << (chLen)))
+
+        if (ch & (1 << (chLen)))
         {
-            if (i & (1 << 0))
-            {
-                arr[(1 << 0)] = !arr[(1 << 0)];
-            }
-            if (i & (1 << 1))
-            {
-                arr[(1 << 1)] = !arr[(1 << 1)];
-            }
-            if (i & (1 << 2))
-            {
-                arr[(1 << 2)] = !arr[(1 << 2)];
-            }
-            if (i & (1 << 3))
-            {
-                arr[(1 << 3)] = !arr[(1 << 3)];
-            }
             arr[i] = 1;
-            chLen--;
+            for (char j = 0; j < PARITY_COUNT; j++)
+                if (i & (1 << j))
+                    arr[(1 << j)] = !arr[(1 << j)];
         }
-        else
-        {
-            chLen--;
-        }
+
+        chLen--;
     }
 }
 
