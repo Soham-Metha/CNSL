@@ -11,20 +11,14 @@
         }                                                                                                              \
     }
 
-typedef struct HammingSymbol
-{
-    unsigned char charValue;     // dealing with ASCII
-    unsigned short encodedValue; // Bit after encoding (with Hamming parity applied)
-} HammingSymbol;
-
 // extern unsigned char arr[MESSAGE_SIZE + 1];
 
-void getMsbPosition(HammingSymbol *wrd);
+// void getMsbPosition(HammingSymbol *wrd);
 
-void getPriorityBitCnt(HammingSymbol *wrd);
+// void getPriorityBitCnt(HammingSymbol *wrd);
 
-void getPrePriorityChangeValue(HammingSymbol *wrd);
+void getPrePriorityChangeValue(char ch);
 
-HammingSymbol getCodeFor(char ch);
+unsigned short getCodeFor(char ch);
 
 char getDecodedCharFrom(unsigned short code);
