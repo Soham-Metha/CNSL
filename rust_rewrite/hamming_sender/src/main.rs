@@ -2,6 +2,11 @@ use std::env;
 use std::fs;
 use std::process;
 
+struct HammingSymbol {
+    char_val: u8,
+    encoded_val: u16,
+}
+
 fn get_files(args: &[String]) -> (String, String) {
     // println!("All args: {:?}", args);
 
