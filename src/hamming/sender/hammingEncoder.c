@@ -22,9 +22,9 @@ unsigned short getCodeFor(char ch)
         {
             arr[i] = 1;
             for (char j = 0; j < PARITY_COUNT; j++)
+                // arr[1 << j] ^= !!(i & (1 << j));
                 if (i & (1 << j))
                     arr[(1 << j)] = !arr[(1 << j)];
-            // arr[1 << j] ^= !!(i & (1 << j));
         }
 
         chLen--;
