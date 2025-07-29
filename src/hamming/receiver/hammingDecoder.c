@@ -32,10 +32,15 @@ char getDecodedCharFrom(unsigned short code)
     for (unsigned char i = 0; i <= MESSAGE_SIZE; i++)
         arr[i] = 0;
 
-    for (int j = 1; j <= MESSAGE_SIZE; j++)
-        arr[j] = !!(code & (1 << (MESSAGE_SIZE - j)));
-
-    checkParity();
+    for (int i = 1; i <= MESSAGE_SIZE; i++)
+    {
+        arr[i] = !!(code & (1 << (MESSAGE_SIZE - i)));
+        for (char j = 0; j < PARITY_COUNT; j++)
+            // arr[1 << j] ^= !!(i & (1 << j));
+            if (i & (1 << j))
+                arr[(1 << j)] = !arr[(1 << j)];
+    }
+    // checkParity();
 
     int i = MESSAGE_SIZE;
     for (char chLen = 0, powOf2 = 1 << (PARITY_COUNT - 1); chLen < DATA_BIT_CNT; i--)
