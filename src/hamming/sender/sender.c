@@ -12,10 +12,9 @@ int main(int argc, char **argv)
     HammingSymbol out[fileSize];
 
     printf("\n================= SENDER =================\n");
-    printf("\nIN  : %s"
-           "\nOUT : %s\n",
-           argv[1], argv[2]);
+    printf("\nIN  : %s\nOUT : %s\n", argv[1], argv[2]);
     printf("\n┌─────┬──────────────┐\n");
+
     fwrite(&fileSize, sizeof(int8), 1, outF);
     for (int8 i = 0; i < fileSize; i++)
     {
