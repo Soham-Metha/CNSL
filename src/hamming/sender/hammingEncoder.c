@@ -6,7 +6,7 @@ void getPrePriorityChangeValue(char ch)
 {
     int i = 1;
 
-    for (char chLen = DATA_BIT_CNT, powOf2 = 1; chLen > 0;)
+    for (char chLen = DATA_BIT_CNT, powOf2 = 1; chLen >= 0;)
     {
         if (i == powOf2)
         {
