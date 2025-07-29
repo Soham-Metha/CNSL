@@ -7,8 +7,6 @@ char getDecodedCharFrom(unsigned short code)
 {
     unsigned char ParityVal = 0;
     char res = 0;
-    for (unsigned char i = 0; i <= MESSAGE_SIZE; i++)
-        arr[i] = 0;
 
     for (int i = 1; i <= MESSAGE_SIZE; i++)
     {
