@@ -4,11 +4,6 @@ use std::io::Read;
 use std::io::Write;
 use std::process;
 
-struct HammingSymbol {
-    char_val: u8,
-    encoded_val: u16,
-}
-
 fn main() {
     let args: Vec<String> = env::args().collect();
 
@@ -24,20 +19,17 @@ fn main() {
     println!("\n================= SENDER =================\n");
     println!("\nIN : {}\nOUT: {}\n", args[1], args[2]);
     println!("\n================= SENDER =================\n");
+    println!("\n┌─────┬──────────────┐\n");
 
     for ch in characters.chars() {
         let ch = ch as u8;
 
         println!("│  {}  │ ", if ch == b'\n' { b'\\' } else { ch });
 
-        let code = HammingSymbol {
-            char_val: ch,
-            encoded_val: 0,
-        };
+        let code = getCodeFor(&ch);
         out_f.write_all(&code.encoded_val.to_be_bytes()).unwrap();
     }
 
-    println!("\n┌─────┬──────────────┐\n");
     println!("└─────┴──────────────┘");
     println!("\n\n================= SENDER =================\n\n");
 }
