@@ -4,6 +4,7 @@ unsigned char arr[MESSAGE_SIZE + 1];
 
 unsigned short getCodeFor(char ch)
 {
+    unsigned short result = 0;
     for (unsigned char i = 0; i <= MESSAGE_SIZE; i++)
     {
         arr[i] = 0;
@@ -30,7 +31,6 @@ unsigned short getCodeFor(char ch)
         chLen--;
     }
 
-    unsigned short result = 0;
     for (int i = 1; i <= MESSAGE_SIZE; i++)
     {
         result |= arr[i] << (MESSAGE_SIZE - i);
