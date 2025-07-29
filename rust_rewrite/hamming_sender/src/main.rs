@@ -39,22 +39,14 @@ fn main() {
 
 fn get_code_for(ch: &u8) -> u16 {
     let mut bit_arr = [0; MESSAGE_SIZE + 1];
-    let mut data_len = DATA_SIZE;
-    let mut pow_of_2 = 1;
-    for i in (1..=MESSAGE_SIZE).rev() {
-        if i == pow_of_2 {
-            pow_of_2 = pow_of_2 << 1;
-        } else {
-            bit_arr[i] = if (ch & (1 << (data_len - 1))) != 0 {
-                1
-            } else {
-                0
-            };
-            data_len -= 1;
-            if data_len == 0 {
-                break;
-            }
-        }
-    }
+    let mut data_len = 0;
+
+    (1..=MESSAGE_SIZE)
+        .filter(|&i| !i.is_power_of_two())
+        .for_each(|i| {
+            let bit = (ch >> (DATA_SIZE - 1 - data_len)) & 1;
+            bit_arr[i] = bit;
+            data_len += 1;
+        });
     0
 }
