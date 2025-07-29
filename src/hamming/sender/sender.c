@@ -3,13 +3,13 @@
 
 int main(int argc, char **argv)
 {
+    int8 fileSize = (int8)getFiles(&argc, &argv);
+    fwrite(&fileSize, sizeof(int8), 1, outF);
+
     printf("\n================= SENDER =================\n"
            "\nIN  : %s\nOUT : %s\n"
            "\n┌─────┬──────────────┐\n",
            argv[1], argv[2]);
-
-    int8 fileSize = (int8)getFiles(&argc, &argv);
-    fwrite(&fileSize, sizeof(int8), 1, outF);
 
     for (int8 i = 0; i < fileSize; i++)
     {
