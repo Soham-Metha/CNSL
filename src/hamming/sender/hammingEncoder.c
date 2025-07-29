@@ -16,7 +16,6 @@ void getPrePriorityChangeValue(char ch)
         {
             // arr[i] = (ch & (1 << (chLen - 1))) ? 1 : 0;
             // printf("%d", arr[i]);
-            chLen--;
             if (ch & (1 << (chLen - 1)))
             {
                 arr[i] = 1;
@@ -42,6 +41,7 @@ void getPrePriorityChangeValue(char ch)
                     printf("pos %d ", 1 << 3);
                 }
             }
+            chLen--;
         }
         i++;
     }
