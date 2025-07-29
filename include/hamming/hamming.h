@@ -1,4 +1,5 @@
 #pragma once
+#include <stdio.h>
 
 #define DATA_BIT_CNT 8
 #define PARITY_COUNT 4
@@ -12,6 +13,7 @@
         }                                                                                                              \
     }
 
+unsigned char arr[MESSAGE_SIZE + 1];
 // extern unsigned char arr[MESSAGE_SIZE + 1];
 
 // void getMsbPosition(HammingSymbol *wrd);

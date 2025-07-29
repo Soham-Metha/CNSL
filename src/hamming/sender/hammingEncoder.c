@@ -1,6 +1,4 @@
 #include <hamming.h>
-#include <stdio.h>
-unsigned char arr[MESSAGE_SIZE + 1];
 
 unsigned short getCodeFor(char ch)
 {
