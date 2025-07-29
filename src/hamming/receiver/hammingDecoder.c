@@ -42,6 +42,7 @@ char getDecodedCharFrom(unsigned short code)
     }
 
     unsigned char ParityVal = 0;
+    printf("%d %d %d %d", arr[1 << 0], arr[2], arr[4], arr[8]);
     // for (unsigned char j = 0; j < MESSAGE_SIZE; j = j << 1)
     //     ParityVal = j * arr[j];
 
