@@ -20,13 +20,12 @@ fn main() {
     let mut characters = String::new();
     in_f.read_to_string(&mut characters).unwrap();
 
-    println!("\n================= SENDER =================\n");
+    println!("\n================= SENDER =================");
     println!("\nIN : {}\nOUT: {}\n", args[1], args[2]);
-    println!("\n================= SENDER =================\n");
-    println!("\n┌─────┬──────────────┐");
+    println!("┌─────┬──────────────┐");
 
     for ch in characters.chars() {
-        println!("│  {}  │ ", if ch == '\n' { '\\' } else { ch });
+        print!("│  {}  │ ", if ch == '\n' { '\\' } else { ch });
         let ch = ch as u8;
         let code = get_code_for(&ch);
         print_bits(MESSAGE_SIZE, 0, code);
@@ -34,7 +33,7 @@ fn main() {
     }
 
     println!("└─────┴──────────────┘");
-    println!("\n\n================= SENDER =================\n\n");
+    println!("\n================= SENDER =================\n");
 }
 
 fn get_code_for(ch: &u8) -> u16 {
@@ -44,8 +43,7 @@ fn get_code_for(ch: &u8) -> u16 {
     (1..=MESSAGE_SIZE)
         .filter(|&i| !i.is_power_of_two())
         .for_each(|i| {
-            let bit = (ch >> (DATA_SIZE - 1 - data_len)) & 1;
-            bit_arr[i] = bit;
+            bit_arr[i] = (ch >> (DATA_SIZE - 1 - data_len)) & 1;
             data_len += 1;
         });
     (1..=MESSAGE_SIZE)
@@ -61,7 +59,6 @@ fn get_code_for(ch: &u8) -> u16 {
             bit_arr[p] = parity as u8;
         });
 
-    // Convert bit array to u16
     (1..=MESSAGE_SIZE).fold(0u16, |acc, i| {
         acc | ((bit_arr[i] as u16) << (MESSAGE_SIZE - i))
     })
@@ -71,5 +68,5 @@ fn print_bits(ub: usize, lb: usize, data: u16) {
     for j in (lb..ub).rev() {
         print!("{}", (data >> j) & 1);
     }
-    println!();
+    println!(" │");
 }
