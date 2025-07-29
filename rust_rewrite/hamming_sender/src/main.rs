@@ -28,8 +28,8 @@ fn main() {
     for ch in characters.chars() {
         println!("│  {}  │ ", if ch == '\n' { '\\' } else { ch });
         let ch = ch as u8;
-
         let code = get_code_for(&ch);
+        print_bits(MESSAGE_SIZE, 0, code);
         out_f.write_all(&code.to_be_bytes()).unwrap();
     }
 
@@ -67,8 +67,8 @@ fn get_code_for(ch: &u8) -> u16 {
     })
 }
 
-fn print_bits(ub: u8, lb: u8, data: u32) {
-    for j in (lb..=ub).rev() {
+fn print_bits(ub: usize, lb: usize, data: u16) {
+    for j in (lb..ub).rev() {
         print!("{}", (data >> j) & 1);
     }
     println!();
