@@ -47,9 +47,6 @@ long readInFile()
 long getFiles(int *argc, char ***argv)
 {
     (void)argc;
-    printf("\nIN  : %s"
-           "\nOUT : %s\n",
-           (*argv)[1], (*argv)[2]);
     inF = fopen((*argv)[1], "r");
     outF = fopen((*argv)[2], "w+b");
 
