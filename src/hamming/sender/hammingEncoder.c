@@ -45,8 +45,6 @@ unsigned short getCodeFor(char ch)
         arr[i] = 0;
     }
 
-    // getMsbPosition(&wrd);
-    // getPriorityBitCnt(&wrd);
     getPrePriorityChangeValue(ch);
     unsigned short result = 0;
 
