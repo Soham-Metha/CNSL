@@ -40,6 +40,9 @@ char getDecodedCharFrom(unsigned short code)
             if (i & (1 << j))
                 arr[(1 << j)] = !arr[(1 << j)];
     }
+    unsigned char ParityVal = 0;
+    for (char j = 0; j < PARITY_COUNT; j++)
+        ParityVal += arr[1 << j] * 1 << j;
     // checkParity();
 
     int i = MESSAGE_SIZE;
