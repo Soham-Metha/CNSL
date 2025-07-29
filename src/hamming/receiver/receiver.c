@@ -5,7 +5,6 @@
 int main(int argc, char **argv)
 {
     assert(getFiles(&argc, &argv));
-
     int16 *encodedText = (int16 *)(&in[1]);
 
     printf("\n================ RECEIVER ================\n"
