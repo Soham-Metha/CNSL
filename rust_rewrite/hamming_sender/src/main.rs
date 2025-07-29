@@ -66,3 +66,10 @@ fn get_code_for(ch: &u8) -> u16 {
         acc | ((bit_arr[i] as u16) << (MESSAGE_SIZE - i))
     })
 }
+
+fn print_bits(ub: u8, lb: u8, data: u32) {
+    for j in (lb..=ub).rev() {
+        print!("{}", (data >> j) & 1);
+    }
+    println!();
+}
