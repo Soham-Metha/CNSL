@@ -9,11 +9,12 @@
 int main(int argc, char **argv)
 {
     printf("\n================= SENDER =================\n");
-    long fileSize = getFiles(&argc, &argv);
+    unsigned char fileSize = getFiles(&argc, &argv);
     HammingSymbol out[fileSize];
 
     printf("\n┌─────┬──────────────┐\n");
-    for (long i = 0; i < fileSize; i++)
+    fwrite(&fileSize, sizeof(unsigned char), 1, outF);
+    for (unsigned char i = 0; i < fileSize; i++)
     {
         out[i] = getCodeFor(in[i]);
 
@@ -22,6 +23,7 @@ int main(int argc, char **argv)
         printf(" │\n");
 
         out[i].encodedValue |= 2;
+        fwrite(&(out[i].encodedValue), sizeof(unsigned short), 1, outF);
     }
 
     dumpHexToFile(out, fileSize, outF);
