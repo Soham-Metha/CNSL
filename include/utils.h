@@ -13,6 +13,14 @@ typedef unsigned long long int int64;
 #define $c (char *)
 #define $i (int)
 
+typedef enum Params {
+	PARAM_FILE_NAME,
+	PARAM_INPUT_FILE,
+	PARAM_OUTPUT_FILE,
+	PARAM_EXP_NO,
+	PARAM_CNT,
+} Params;
+
 extern char *in;
 extern FILE *outF;
 
