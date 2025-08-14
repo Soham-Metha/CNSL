@@ -4,10 +4,10 @@
 //  1   2   3   4   5   6   7   8   9   10  11  12
 //  P1  P2  1   P3  2   3   4   P4  5   6   7   8
 
-//  P1 = P1, 1, 2, 4, 5, 7      | 1, 3, 5, 7, 9, 11
-//  P2 = P2, 1, 3, 4, 6, 7      | 2, 3, 6, 7, 10, 11
-//  P3 = P3, 2, 3, 4, 8         | 4, 5, 6, 7, 12
-//  P4 = P4, 5, 6, 7, 8         | 8, 9, 10, 11, 12
+//  P1 = 1, 3, 5, 7, 9, 11
+//  P2 = 2, 3, 6, 7, 10, 11
+//  P3 = 4, 5, 6, 7, 12
+//  P4 = 8, 9, 10, 11, 12
 
 //  1:  P1,             |   1000    |   0001    |   1
 //  2:      P2,         |   0100    |   0010    |   2
@@ -26,9 +26,7 @@ char getDecodedCharFrom(unsigned short code)
 {
 	unsigned char arr[MESSAGE_SIZE + 1];
 	unsigned char ParityVal = 0;
-	for (int i = 1; i <= MESSAGE_SIZE;
-	     i++) { // Load value into arr, & update corresponding parity bits
-		// opposite hammingEncoder:31 stmt :=>  result |= arr[i] << (MESSAGE_SIZE - i);
+	for (int i = 1; i <= MESSAGE_SIZE; i++) {
 		arr[i] = !!(code & (1 << (MESSAGE_SIZE - i)));
 		if (arr[i])
 			ParityVal ^= i;
@@ -43,14 +41,13 @@ char getDecodedCharFrom(unsigned short code)
 	char res = 0;
 	unsigned char i = 1;
 	for (char chLen = DATA_BIT_CNT - 1, powOf2 = 1; chLen >= 0; i++) {
-		if (i ==
-		    powOf2) { // skip parity bits(present at location 'powerOf2')
+		if (i == powOf2) {
+			// skip parity bits(present at location 'powerOf2')
 			powOf2 = powOf2 << 1;
 			continue;
 		}
 
 		{ // Load data Bit into 'result'
-			// opposite hammingEncoder:18 :=> if (ch & (1 << (chLen))) arr[i] = 1;
 			res = res | (arr[i] ? (1 << (chLen)) : 0);
 		}
 		chLen--;

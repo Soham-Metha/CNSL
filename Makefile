@@ -24,8 +24,7 @@ run_sender: $(SENDER)
 	@$(SENDER) $(INPUT) $(INTER) $(EXPNO)
 
 run_receiver: $(RECIVR)
-	echo $(RECIVR)
-	$(RECIVR) $(INTER) $(OUTPT) $(EXPNO)
+	@$(RECIVR) $(INTER) $(OUTPT) $(EXPNO)
 
 run_diff:
 	@diff $(INPUT) $(OUTPT)

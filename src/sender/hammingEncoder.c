@@ -26,15 +26,14 @@ unsigned short getCodeFor(char ch)
 
 	unsigned char i = 1;
 	for (char chLen = DATA_BIT_CNT - 1, powOf2 = 1; chLen >= 0; i++) {
-		if (i ==
-		    powOf2) { // skip parity bits(present at location 'powerOf2')
+		if (i == powOf2) {
+			// skip parity bits(present at location 'powerOf2')
 			powOf2 = powOf2 << 1;
 			continue;
 		}
 
-		if (ch &
-		    (1
-		     << (chLen))) { // Load value into arr, & update corresponding parity bits
+		if (ch & (1 << (chLen))) {
+			// Load value into arr, & update corresponding parity bits
 			arr[i] = 1;
 			for (char j = 0; j < PARITY_COUNT; j++)
 				// arr[1 << j] ^= !!(i & (1 << j));
